@@ -283,5 +283,18 @@
         app:layout_constraintStart_toEndOf="@+id/buttonC"
         app:layout_constraintTop_toBottomOf="@+id/mainTextView" />
 
+    <TextView
+        android:id="@+id/operationTextView"
+        android:layout_width="298dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
