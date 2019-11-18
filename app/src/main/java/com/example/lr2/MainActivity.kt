@@ -31,28 +31,6 @@ class MainActivity : AppCompatActivity() {
     var currentOperation: CalculatorOperation = CalculatorOperation.None
     var firstNumber: Float? = null
     lateinit var binding: ActivityMainBinding
-
-    fun setButtonActions() {
-        binding.button0.setOnClickListener{ inputNumber("0") }
-        binding.button1.setOnClickListener{ inputNumber("1") }
-        binding.button2.setOnClickListener{ inputNumber("2") }
-        binding.button3.setOnClickListener{ inputNumber("3") }
-        binding.button4.setOnClickListener{ inputNumber("4") }
-        binding.button5.setOnClickListener{ inputNumber("5") }
-        binding.button6.setOnClickListener{ inputNumber("6") }
-        binding.button7.setOnClickListener{ inputNumber("7") }
-        binding.button8.setOnClickListener{ inputNumber("8") }
-        binding.button9.setOnClickListener{ inputNumber("9") }
-        binding.buttonDecimal.setOnClickListener{ inputNumber(".") }
-        binding.buttonC.setOnClickListener{ inputNumber("C") }
-        binding.buttonPlus.setOnClickListener{ buttonOperation(CalculatorOperation.Add) }
-        binding.buttonMinus.setOnClickListener{ buttonOperation(CalculatorOperation.Subtract) }
-        binding.buttonMultiply.setOnClickListener{ buttonOperation(CalculatorOperation.Multiply) }
-        binding.buttonDivide.setOnClickListener{ buttonOperation(CalculatorOperation.Divide) }
-        binding.buttonEquals.setOnClickListener{ doCurrentOperation() }
-        binding.buttonPlusMinus.setOnClickListener{ doInstantOperation(InstantOperation.PlusMinus) }
-        binding.buttonPercent.setOnClickListener { doInstantOperation(InstantOperation.Percent) }
-    }
     
     //TODO function for making string (both normal and short)
 
@@ -181,6 +159,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         inputNumber("C")
-        setButtonActions()
     }
 }
