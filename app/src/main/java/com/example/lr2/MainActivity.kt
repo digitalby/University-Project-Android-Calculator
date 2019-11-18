@@ -17,6 +17,14 @@ enum class CalculatorOperation {
     Divide
 }
 
+enum class InstantOperation {
+    Percent,
+    PlusMinus,
+    Sin,
+    Cos,
+    Tan
+}
+
 class MainActivity : AppCompatActivity() {
 
     var currentNumberString = ""
@@ -42,35 +50,40 @@ class MainActivity : AppCompatActivity() {
         binding.buttonMultiply.setOnClickListener{ buttonOperation(CalculatorOperation.Multiply) }
         binding.buttonDivide.setOnClickListener{ buttonOperation(CalculatorOperation.Divide) }
         binding.buttonEquals.setOnClickListener{ doCurrentOperation() }
-        binding.buttonPlusMinus.setOnClickListener{ doPlusMinus() }
-        binding.buttonPercent.setOnClickListener { doPercent() }
+        binding.buttonPlusMinus.setOnClickListener{ doInstantOperation(InstantOperation.PlusMinus) }
+        binding.buttonPercent.setOnClickListener { doInstantOperation(InstantOperation.Percent) }
     }
     
-    //TODO instant operations
-    //TODO function for making string (both normal and short) with and without outputting
+    //TODO function for making string (both normal and short)
 
     fun parseCurrentString(): Float {
-        if(currentNumberString.isNullOrEmpty() || currentNumberString == "0.") {
+        if(currentNumberString.isEmpty() || currentNumberString == "0.") {
             return 0f
         }
         return currentNumberString.toFloat()
     }
 
     fun toCurrentString(num: Float) {
-        var ret = num.toString()
+        val ret = num.toString()
         //FIXME long strings and big numbers are not handled!
+
+        //FIXME no trailing zeros allowed!
 
         //TODO handle numbers that are too long (>=1 billion) or with too long decimal parts. don't forget MINUS!
         //TODO handle both portrait and landscape (introduce a new variable?)
-        currentNumberString = ret
-        binding.mainTextView.text = currentNumberString
+        updateStringAndText(ret)
+    }
+
+    fun updateStringAndText(str: String, textViewText: String = str) {
+        currentNumberString = str
+        binding.mainTextView.text = textViewText
     }
 
     fun doPlusMinus() {
-        if(currentNumberString.isNullOrEmpty() || currentNumberString == "Error")
+        if(currentNumberString.isEmpty() || currentNumberString == "Error")
             return
-        if(currentNumberString.contains("-")) {
-            currentNumberString = currentNumberString.replace("-","")
+        if(currentNumberString[0] == '-') {
+            currentNumberString = currentNumberString.removeRange(0,1)
         } else {
             if(parseCurrentString() != 0f) {
                 currentNumberString = "-${currentNumberString}"
@@ -90,20 +103,27 @@ class MainActivity : AppCompatActivity() {
     fun buttonOperation(operation: CalculatorOperation) {
         if(currentNumberString == "Error")
             return
-        if(!currentNumberString.isNullOrEmpty()) {
+        if(!currentNumberString.isEmpty()) {
             doCurrentOperation()
             firstNumber = parseCurrentString()
-            currentNumberString = ""
-            binding.mainTextView.text = "0"
+            updateStringAndText("", "0")
         }
         currentOperation = operation
+    }
+
+    fun doInstantOperation(operation: InstantOperation) {
+        when(operation) {
+            InstantOperation.Percent -> doPercent()
+            InstantOperation.PlusMinus -> doPlusMinus()
+            else -> return
+        }
     }
 
     fun doCurrentOperation() {
         if(currentNumberString == "Error")
             return
         val secondNumber = parseCurrentString()
-        var result: Float = 0f
+        var result = 0f
         when(currentOperation) {
             CalculatorOperation.None -> return
             CalculatorOperation.Add -> {
@@ -117,8 +137,7 @@ class MainActivity : AppCompatActivity() {
             }
             CalculatorOperation.Divide -> {
                 if(secondNumber == 0f) {
-                    currentNumberString = "Error"
-                    binding.mainTextView.text = currentNumberString
+                    updateStringAndText("Error")
                 } else {
                     result = firstNumber!! / secondNumber
                 }
@@ -131,24 +150,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun inputNumber(symbol: String) {
+        //FIXME bug: if E is present, disallow entry of numbers, or implement 'preview' mode
         if(symbol == "C") {
             currentOperation = CalculatorOperation.None
-            currentNumberString = ""
-            binding.mainTextView.text = "0"
+            updateStringAndText("", "0")
             return
         }
         if(currentNumberString == "Error")
             return
         if(currentNumberString.length == 8) { //TODO handle landscape and don't hardcode length
             return
-        } else if(currentNumberString.isNullOrEmpty()) {
-            if(symbol == ".") {
-                currentNumberString = "0."
-            } else if(symbol == "0") {
-                binding.mainTextView.text = "0"
-                return
-            } else {
-                currentNumberString += symbol
+        } else if(currentNumberString.isEmpty()) {
+            when (symbol) {
+                "." -> currentNumberString = "0."
+                "0" -> {
+                    binding.mainTextView.text = "0"
+                    return
+                }
+                else -> currentNumberString += symbol
             }
         } else {
             if((symbol == "." && !currentNumberString.contains(symbol)) || symbol.isDigitsOnly()) {
