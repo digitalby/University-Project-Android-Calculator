@@ -12,110 +12,113 @@
         <Button
             android:id="@+id/buttonArccosh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arccosh"
             android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonArctanh"
             app:layout_constraintStart_toStartOf="@+id/buttonArctanh"
-            app:layout_constraintTop_toBottomOf="@+id/buttonArctanh" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65999997" />
 
         <Button
             android:id="@+id/buttonTanh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_tanh"
             android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonArctanh"
             app:layout_constraintEnd_toEndOf="@+id/buttonRandom"
             app:layout_constraintStart_toStartOf="@+id/buttonRandom"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRandom" />
+            app:layout_constraintTop_toTopOf="@+id/buttonArctanh" />
 
         <Button
             android:id="@+id/buttonSinh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="17dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_sinh"
             android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonCosh"
             app:layout_constraintStart_toStartOf="@+id/buttonCosh"
-            app:layout_constraintTop_toBottomOf="@+id/buttonCosh" />
+            app:layout_constraintTop_toTopOf="@+id/buttonArcsinh" />
 
         <Button
             android:id="@+id/buttonArctanh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arctanh"
             android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonFactorial"
             app:layout_constraintStart_toStartOf="@+id/buttonFactorial"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFactorial" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32999998" />
 
         <Button
             android:id="@+id/buttonArcsinh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="17dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arcsinh"
             android:textAllCaps="false"
-            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonArccosh"
             app:layout_constraintStart_toStartOf="@+id/buttonArccosh"
-            app:layout_constraintTop_toBottomOf="@+id/buttonArccosh" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/buttonRandom"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_random"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@+id/buttonTanh"
-            app:layout_constraintStart_toEndOf="@+id/buttonFactorial"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/buttonFactorial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonFactorial" />
 
         <Button
             android:id="@+id/buttonCosh"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginTop="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_cosh"
             android:textAllCaps="false"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonArccosh"
             app:layout_constraintEnd_toEndOf="@+id/buttonTanh"
             app:layout_constraintStart_toStartOf="@+id/buttonTanh"
-            app:layout_constraintTop_toBottomOf="@+id/buttonTanh" />
+            app:layout_constraintTop_toTopOf="@+id/buttonArccosh" />
 
         <Button
             android:id="@+id/buttonFactorial"
             android:layout_width="55sp"
-            android:layout_height="55sp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_factorial"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@+id/buttonArctanh"
-            app:layout_constraintEnd_toStartOf="@+id/buttonRandom"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
