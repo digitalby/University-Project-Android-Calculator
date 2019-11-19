@@ -11,12 +11,14 @@
 
         <Button
             android:id="@+id/buttonLog10"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_log10"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonLn"
             app:layout_constraintStart_toStartOf="@+id/buttonLn"
@@ -25,12 +27,14 @@
 
         <Button
             android:id="@+id/buttonArctan"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arctan"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/buttonLn"
             app:layout_constraintEnd_toEndOf="@+id/buttonCubrt"
@@ -39,12 +43,14 @@
 
         <Button
             android:id="@+id/buttonArcsin"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arcsin"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/buttonLog2"
             app:layout_constraintEnd_toEndOf="@+id/buttonArccos"
@@ -53,12 +59,14 @@
 
         <Button
             android:id="@+id/buttonLn"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_ln"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonPowerX"
             app:layout_constraintStart_toStartOf="@+id/buttonPowerX"
@@ -67,12 +75,14 @@
 
         <Button
             android:id="@+id/buttonLog2"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_log2"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonLog10"
             app:layout_constraintStart_toStartOf="@+id/buttonLog10"
@@ -81,12 +91,14 @@
 
         <Button
             android:id="@+id/buttonCubrt"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_cubrt"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/buttonPowerX"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,12 +108,14 @@
 
         <Button
             android:id="@+id/buttonArccos"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arccos"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/buttonLog10"
             app:layout_constraintEnd_toEndOf="@+id/buttonArctan"
@@ -110,12 +124,14 @@
 
         <Button
             android:id="@+id/buttonPowerX"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_power_x"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

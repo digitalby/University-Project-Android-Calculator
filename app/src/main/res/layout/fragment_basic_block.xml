@@ -11,25 +11,29 @@
 
     <Button
         android:id="@+id/buttonC"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_c"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_2"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toTopOf="@+id/button0"
         app:layout_constraintEnd_toEndOf="@+id/button5"
         app:layout_constraintStart_toStartOf="@+id/button5"
@@ -38,44 +42,53 @@
 
     <Button
         android:id="@+id/button6"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_6"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/button9"
         app:layout_constraintStart_toStartOf="@+id/button9"
         app:layout_constraintTop_toTopOf="@+id/button5" />
 
     <Button
         android:id="@+id/buttonMultiply"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_multiply"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonDivide"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/buttonDivide"
         app:layout_constraintTop_toTopOf="@+id/button9" />
 
     <Button
         android:id="@+id/buttonEquals"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_equals"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonPlus"
         app:layout_constraintStart_toStartOf="@+id/buttonPlus"
         app:layout_constraintTop_toTopOf="@+id/button0" />
 
     <Button
         android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_4"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button7"
         app:layout_constraintStart_toStartOf="@+id/button7"
@@ -84,156 +97,182 @@
 
     <Button
         android:id="@+id/buttonPlus"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_add"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonMinus"
         app:layout_constraintStart_toStartOf="@+id/buttonMinus"
         app:layout_constraintTop_toTopOf="@+id/button3" />
 
     <Button
         android:id="@+id/button1"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_1"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio=""
         app:layout_constraintEnd_toEndOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.74" />
 
     <Button
         android:id="@+id/button9"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_9"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonPercent"
         app:layout_constraintStart_toStartOf="@+id/buttonPercent"
         app:layout_constraintTop_toTopOf="@+id/button8" />
 
     <Button
         android:id="@+id/button0"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="0dp"
         android:layout_height="40sp"
         android:width="70sp"
         android:height="40sp"
         android:text="@string/button_0"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/button1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_3"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/button6"
         app:layout_constraintStart_toStartOf="@+id/button6"
         app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <Button
         android:id="@+id/button5"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_5"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/button8"
         app:layout_constraintStart_toStartOf="@+id/button8"
         app:layout_constraintTop_toTopOf="@+id/button4" />
 
     <Button
         android:id="@+id/button7"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_7"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonC"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/buttonC"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/button8"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_8"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonPlusMinus"
         app:layout_constraintStart_toStartOf="@+id/buttonPlusMinus"
         app:layout_constraintTop_toTopOf="@+id/button7" />
 
     <Button
         android:id="@+id/buttonDivide"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_divide"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonPercent" />
 
     <Button
         android:id="@+id/buttonMinus"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_subtract"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/buttonMultiply"
         app:layout_constraintStart_toStartOf="@+id/buttonMultiply"
         app:layout_constraintTop_toTopOf="@+id/button5" />
 
     <Button
         android:id="@+id/buttonPercent"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_percent"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonPlusMinus" />
 
     <Button
         android:id="@+id/buttonDecimal"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_decimal"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toTopOf="@+id/button0" />
 
     <Button
         android:id="@+id/buttonPlusMinus"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55sp"
         android:layout_height="40sp"
         android:width="55sp"
         android:height="40sp"
         android:text="@string/button_plusminus"
+        android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonC" />
 

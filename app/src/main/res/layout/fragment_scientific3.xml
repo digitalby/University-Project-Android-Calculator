@@ -11,12 +11,14 @@
 
         <Button
             android:id="@+id/buttonArccosh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arccosh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonArctanh"
             app:layout_constraintStart_toStartOf="@+id/buttonArctanh"
@@ -25,12 +27,14 @@
 
         <Button
             android:id="@+id/buttonTanh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_tanh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="@+id/buttonArctanh"
             app:layout_constraintEnd_toEndOf="@+id/buttonRandom"
             app:layout_constraintStart_toStartOf="@+id/buttonRandom"
@@ -38,12 +42,14 @@
 
         <Button
             android:id="@+id/buttonSinh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_sinh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonCosh"
             app:layout_constraintStart_toStartOf="@+id/buttonCosh"
@@ -51,12 +57,14 @@
 
         <Button
             android:id="@+id/buttonArctanh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arctanh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonFactorial"
             app:layout_constraintStart_toStartOf="@+id/buttonFactorial"
@@ -65,12 +73,14 @@
 
         <Button
             android:id="@+id/buttonArcsinh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_arcsinh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonArccosh"
             app:layout_constraintStart_toStartOf="@+id/buttonArccosh"
@@ -79,12 +89,14 @@
 
         <Button
             android:id="@+id/buttonRandom"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_random"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="@+id/buttonFactorial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -93,12 +105,14 @@
 
         <Button
             android:id="@+id/buttonCosh"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_cosh"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/buttonArccosh"
             app:layout_constraintEnd_toEndOf="@+id/buttonTanh"
@@ -107,12 +121,14 @@
 
         <Button
             android:id="@+id/buttonFactorial"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="55sp"
             android:layout_height="40sp"
             android:width="55sp"
             android:height="55sp"
             android:text="@string/button_factorial"
             android:textAllCaps="false"
+            android:textColor="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
