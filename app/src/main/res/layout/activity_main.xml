@@ -20,6 +20,7 @@
         android:gravity="end"
         android:text="0"
         android:textSize="36sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,11 +39,25 @@
         app:layout_constraintTop_toBottomOf="@+id/mainTextView" />
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/fragmentScientificBlock"
+        android:name="com.example.lr2.ScientificBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/operationTextView"
+        tools:layout="@layout/fragment_scientific_block" />
+
+    <fragment
+        android:id="@+id/fragmentBasicBlock"
         android:name="com.example.lr2.BasicBlock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Scientific1Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Scientific1">
+
+
+        <Button
+            android:id="@+id/buttonPower2"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_power_2"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPower3"
+            app:layout_constraintStart_toStartOf="@+id/buttonPower3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPower3" />
+
+        <Button
+            android:id="@+id/buttonTan"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_tan"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonSqrt"
+            app:layout_constraintStart_toStartOf="@+id/buttonSqrt"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSqrt" />
+
+        <Button
+            android:id="@+id/buttonSin"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_sin"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCos"
+            app:layout_constraintStart_toStartOf="@+id/buttonCos"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCos" />
+
+        <Button
+            android:id="@+id/buttonPower3"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_power_3"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonExponent"
+            app:layout_constraintStart_toStartOf="@+id/buttonExponent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonExponent" />
+
+        <Button
+            android:id="@+id/buttonPowerInvert"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_power_invert"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPower2"
+            app:layout_constraintStart_toStartOf="@+id/buttonPower2"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPower2" />
+
+        <Button
+            android:id="@+id/buttonSqrt"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_sqrt"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/buttonTan"
+            app:layout_constraintStart_toEndOf="@+id/buttonExponent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonCos"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_cos"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonTan"
+            app:layout_constraintStart_toStartOf="@+id/buttonTan"
+            app:layout_constraintTop_toBottomOf="@+id/buttonTan" />
+
+        <Button
+            android:id="@+id/buttonExponent"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_exponent"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPower3"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSqrt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

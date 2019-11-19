@@ -1,8 +1,13 @@
 package com.example.lr2
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import com.example.lr2.databinding.ActivityMainBinding
@@ -30,12 +35,20 @@ enum class InstantOperation {
     Tan
 }
 
+enum class CalculatorMode {
+    PortraitBasic,
+    PortraitScientific,
+    Landscape
+}
+
 class MainActivity : AppCompatActivity() {
 
     var currentNumberString = ""
     var currentOperation: CalculatorOperation = CalculatorOperation.None
     var firstNumber: Double? = null
     var memory: Double = 0.0; private set
+    var menuItem: MenuItem? = null
+    var currentMode = CalculatorMode.PortraitBasic
     lateinit var binding: ActivityMainBinding
     
     //TODO function for making string (both normal and short)
@@ -87,7 +100,7 @@ class MainActivity : AppCompatActivity() {
     fun buttonOperation(operation: CalculatorOperation) {
         if(currentNumberString == "Error")
             return
-        if(!currentNumberString.isEmpty()) {
+        if(currentNumberString.isNotEmpty()) {
             doCurrentOperation()
             firstNumber = parseCurrentString()
             updateStringAndText("", "0")
@@ -141,6 +154,25 @@ class MainActivity : AppCompatActivity() {
         currentOperation = CalculatorOperation.None
     }
 
+    fun setMode(mode: CalculatorMode) {
+        val basicBlock: View = findViewById(R.id.fragmentBasicBlock)
+        val scientificBlock: View = findViewById(R.id.fragmentScientificBlock)
+        currentMode = mode
+        when(mode) {
+            CalculatorMode.PortraitBasic -> {
+                scientificBlock.visibility = View.GONE
+                basicBlock.visibility = View.VISIBLE
+                menuItem?.icon =  ContextCompat.getDrawable(this, R.drawable.scientific)
+            }
+            CalculatorMode.PortraitScientific -> {
+                basicBlock.visibility = View.GONE
+                scientificBlock.visibility = View.VISIBLE
+                menuItem?.icon =  ContextCompat.getDrawable(this, R.drawable.basic)
+            }
+            CalculatorMode.Landscape -> return
+        }
+    }
+
     fun inputNumber(symbol: String) {
         //FIXME bug: if EXPONENT is present, disallow entry of numbers, or implement 'preview' mode
         if(symbol == "C") {
@@ -150,7 +182,7 @@ class MainActivity : AppCompatActivity() {
         }
         if(currentNumberString == "Error")
             return
-        if(currentNumberString.length == 8) { //TODO handle landscape and don't hardcode length
+        if(currentNumberString.length == 99999) { //FIXME handle landscape and set length (not hardcoded!)
             return
         } else if(currentNumberString.isEmpty()) {
             when (symbol) {
@@ -159,6 +191,7 @@ class MainActivity : AppCompatActivity() {
                     binding.mainTextView.text = "0"
                     return
                 }
+                "Backspace" -> return
                 else -> currentNumberString += symbol
             }
         } else {
@@ -171,9 +204,31 @@ class MainActivity : AppCompatActivity() {
         binding.mainTextView.text = currentNumberString
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        menuItem = menu?.getItem(0)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.buttonSwitchMode) {
+            menuItem = item
+            when(currentMode) {
+                CalculatorMode.PortraitBasic -> setMode(CalculatorMode.PortraitScientific)
+                CalculatorMode.PortraitScientific -> setMode(CalculatorMode.PortraitBasic)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         inputNumber("C")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setMode(CalculatorMode.PortraitBasic)
     }
 }

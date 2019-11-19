@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scientific2Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Scientific2">
+
+
+        <Button
+            android:id="@+id/buttonLog10"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_log10"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonLn"
+            app:layout_constraintStart_toStartOf="@+id/buttonLn"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLn" />
+
+        <Button
+            android:id="@+id/buttonArctan"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_arctan"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCubrt"
+            app:layout_constraintStart_toStartOf="@+id/buttonCubrt"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCubrt" />
+
+        <Button
+            android:id="@+id/buttonArcsin"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_arcsin"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonArccos"
+            app:layout_constraintStart_toStartOf="@+id/buttonArccos"
+            app:layout_constraintTop_toBottomOf="@+id/buttonArccos" />
+
+        <Button
+            android:id="@+id/buttonLn"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_ln"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPowerX"
+            app:layout_constraintStart_toStartOf="@+id/buttonPowerX"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPowerX" />
+
+        <Button
+            android:id="@+id/buttonLog2"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_log2"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonLog10"
+            app:layout_constraintStart_toStartOf="@+id/buttonLog10"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLog10" />
+
+        <Button
+            android:id="@+id/buttonCubrt"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_cubrt"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonArctan"
+            app:layout_constraintStart_toEndOf="@+id/buttonPowerX"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonArccos"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_arccos"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonArctan"
+            app:layout_constraintStart_toStartOf="@+id/buttonArctan"
+            app:layout_constraintTop_toBottomOf="@+id/buttonArctan" />
+
+        <Button
+            android:id="@+id/buttonPowerX"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_power_x"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLn"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCubrt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
