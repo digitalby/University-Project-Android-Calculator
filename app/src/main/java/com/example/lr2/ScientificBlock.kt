@@ -29,8 +29,7 @@ class ScientificBlock : Fragment() {
         super.onActivityCreated(savedInstanceState)
         mainActivity = activity as MainActivity
         fragments = arrayOf(view?.findViewById(R.id.fragmentScientific1)!!,
-                view?.findViewById(R.id.fragmentScientific2)!!,
-                view?.findViewById(R.id.fragmentScientific3)!!)
+                view?.findViewById(R.id.fragmentScientific2)!!)
         val button = view?.findViewById(R.id.buttonPage) as Button
         button.setOnClickListener {
             setPage(currentPage + 1)
@@ -47,7 +46,8 @@ class ScientificBlock : Fragment() {
         fragments.forEach { x -> x.visibility = View.GONE }
         fragments[currentPage].visibility = View.VISIBLE
         val button = view?.findViewById(R.id.buttonPage) as Button
-        button.text = "${currentPage+1}/${fragments.size}"
+        //TODO lightup 2ndf on 2nd page
+        //button.text = "${currentPage+1}/${fragments.size}"
     }
 
 }

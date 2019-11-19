@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     var currentNumberString = ""
     var currentOperation: CalculatorOperation = CalculatorOperation.None
     var firstNumber: Double? = null
-    var memory: Double = 0.0; private set
+    var memory: Double = 0.0; private set //TODO indication of memory being non-zero
     var menuItem: MenuItem? = null
     var currentMode = CalculatorMode.PortraitBasic
     lateinit var binding: ActivityMainBinding

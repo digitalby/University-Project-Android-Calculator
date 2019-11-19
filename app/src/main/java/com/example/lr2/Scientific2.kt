@@ -17,7 +17,7 @@ class Scientific2 : Fragment() {
     lateinit var binding: FragmentScientific2Binding
     lateinit var mainActivity: MainActivity
     fun setButtonActions() {
-        binding.buttonPowerX.setOnClickListener{ throw NotImplementedError("not implemented") }
+        binding.buttonFactorial.setOnClickListener{ throw NotImplementedError("not implemented") }
         binding.buttonLn.setOnClickListener{ throw NotImplementedError("not implemented") }
         binding.buttonLog10.setOnClickListener{ throw NotImplementedError("not implemented") }
         binding.buttonLog2.setOnClickListener{ throw NotImplementedError("not implemented") }

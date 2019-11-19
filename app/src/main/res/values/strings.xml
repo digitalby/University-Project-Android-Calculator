@@ -38,9 +38,7 @@
     <string name="button_tan">tan</string>
     <string name="button_cos">cos</string>
     <string name="button_sin">sin</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_2ndf">2ndF</string>
     <string name="button_power_x">y^x</string>
     <string name="button_cubrt">cubrt</string>
     <string name="button_ln">ln</string>
@@ -50,11 +48,4 @@
     <string name="button_arccos">cos^-1</string>
     <string name="button_arcsin">sin^-1</string>
     <string name="button_factorial">x!</string>
-    <string name="button_random">RND</string>
-    <string name="button_sinh">sinh</string>
-    <string name="button_cosh">cosh</string>
-    <string name="button_tanh">tanh</string>
-    <string name="button_arcsinh">sinh^-1</string>
-    <string name="button_arccosh">cosh^-1</string>
-    <string name="button_arctanh">tanh^-1</string>
 </resources>
