@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scientificMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ScientificMain">
+
+
+        <Button
+            android:id="@+id/buttonMMinus"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_m_minus"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMR"
+            app:layout_constraintStart_toStartOf="@+id/buttonMR"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMR" />
+
+        <Button
+            android:id="@+id/buttonPi"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_pi"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonE"
+            app:layout_constraintStart_toStartOf="@+id/buttonE"
+            app:layout_constraintTop_toBottomOf="@+id/buttonE" />
+
+        <Button
+            android:id="@+id/buttonLogY"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="16dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_log_y"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPowerY"
+            app:layout_constraintStart_toStartOf="@+id/buttonPowerY"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPowerY" />
+
+        <Button
+            android:id="@+id/buttonPowerY"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_power_y"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonRootY"
+            app:layout_constraintStart_toStartOf="@+id/buttonRootY"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRootY" />
+
+        <Button
+            android:id="@+id/buttonMR"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_mr"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonBackspace"
+            app:layout_constraintStart_toStartOf="@+id/buttonBackspace"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBackspace" />
+
+        <Button
+            android:id="@+id/buttonMPlus"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="17dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_m_plus"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMMinus"
+            app:layout_constraintStart_toStartOf="@+id/buttonMMinus"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMMinus" />
+
+        <Button
+            android:id="@+id/buttonE"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_e"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPi"
+            app:layout_constraintStart_toEndOf="@+id/buttonBackspace"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonRootY"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_root_y"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPi"
+            app:layout_constraintStart_toStartOf="@+id/buttonPi"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPi" />
+
+        <Button
+            android:id="@+id/buttonBackspace"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginBottom="15dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_backspace"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/buttonMR"
+            app:layout_constraintEnd_toStartOf="@+id/buttonE"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonMC"
+            android:layout_width="55sp"
+            android:layout_height="55sp"
+            android:layout_marginTop="16dp"
+            android:width="55sp"
+            android:height="55sp"
+            android:text="@string/button_mc"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMPlus"
+            app:layout_constraintStart_toStartOf="@+id/buttonMPlus"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMPlus" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -20,4 +20,14 @@
     <string name="button_percent">%</string>
     <string name="button_ac">AC</string>
     <string name="button_c">C</string>
+    <string name="button_backspace">⌫</string>
+    <string name="button_mr">MR</string>
+    <string name="button_m_minus">M-</string>
+    <string name="button_m_plus">M+</string>
+    <string name="button_mc">MC</string>
+    <string name="button_e">e</string>
+    <string name="button_pi">π</string>
+    <string name="button_root_y">x^(1/y)</string>
+    <string name="button_power_y">x^y</string>
+    <string name="button_log_y">log_y</string>
 </resources>

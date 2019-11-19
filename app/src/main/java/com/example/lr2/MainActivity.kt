@@ -6,6 +6,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import com.example.lr2.databinding.ActivityMainBinding
+import kotlin.math.E
+import kotlin.math.PI
 import kotlin.math.absoluteValue
 import kotlin.math.roundToLong
 
@@ -20,6 +22,9 @@ enum class CalculatorOperation {
 enum class InstantOperation {
     Percent,
     PlusMinus,
+    InsertPi,
+    InsertE,
+    Backspace,
     Sin,
     Cos,
     Tan
@@ -29,19 +34,20 @@ class MainActivity : AppCompatActivity() {
 
     var currentNumberString = ""
     var currentOperation: CalculatorOperation = CalculatorOperation.None
-    var firstNumber: Float? = null
+    var firstNumber: Double? = null
+    var memory: Double = 0.0; private set
     lateinit var binding: ActivityMainBinding
     
     //TODO function for making string (both normal and short)
 
-    fun parseCurrentString(): Float {
+    fun parseCurrentString(): Double {
         if(currentNumberString.isEmpty() || currentNumberString == "0.") {
-            return 0f
+            return 0.0
         }
-        return currentNumberString.toFloat()
+        return currentNumberString.toDouble()
     }
 
-    fun toCurrentString(num: Float) {
+    fun toCurrentString(num: Double) {
         val ret = num.toString()
         //FIXME long strings and big numbers are not handled!
 
@@ -63,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         if(currentNumberString[0] == '-') {
             currentNumberString = currentNumberString.removeRange(0,1)
         } else {
-            if(parseCurrentString() != 0f) {
+            if(parseCurrentString() != 0.0) {
                 currentNumberString = "-${currentNumberString}"
             }
         }
@@ -74,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         if(currentNumberString == "Error")
             return
         var num = parseCurrentString()
-        num /= 100f
+        num /= 100.0
         toCurrentString(num)
     }
 
@@ -93,15 +99,23 @@ class MainActivity : AppCompatActivity() {
         when(operation) {
             InstantOperation.Percent -> doPercent()
             InstantOperation.PlusMinus -> doPlusMinus()
+            InstantOperation.InsertPi -> toCurrentString(PI)
+            InstantOperation.InsertE -> toCurrentString(E)
+            InstantOperation.Backspace -> inputNumber("Backspace")
             else -> return
         }
+    }
+
+    fun updateMemory(delta: Double = 0.0, newMemory: Double = memory) {
+        memory = newMemory
+        memory += delta
     }
 
     fun doCurrentOperation() {
         if(currentNumberString == "Error")
             return
         val secondNumber = parseCurrentString()
-        var result = 0f
+        var result = 0.0
         when(currentOperation) {
             CalculatorOperation.None -> return
             CalculatorOperation.Add -> {
@@ -114,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 result = firstNumber!! * secondNumber
             }
             CalculatorOperation.Divide -> {
-                if(secondNumber == 0f) {
+                if(secondNumber == 0.0) {
                     updateStringAndText("Error")
                 } else {
                     result = firstNumber!! / secondNumber
@@ -128,7 +142,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun inputNumber(symbol: String) {
-        //FIXME bug: if E is present, disallow entry of numbers, or implement 'preview' mode
+        //FIXME bug: if EXPONENT is present, disallow entry of numbers, or implement 'preview' mode
         if(symbol == "C") {
             currentOperation = CalculatorOperation.None
             updateStringAndText("", "0")
@@ -148,7 +162,9 @@ class MainActivity : AppCompatActivity() {
                 else -> currentNumberString += symbol
             }
         } else {
-            if((symbol == "." && !currentNumberString.contains(symbol)) || symbol.isDigitsOnly()) {
+            if(symbol == "Backspace") {
+                currentNumberString = currentNumberString.removeRange(currentNumberString.length-1,currentNumberString.length)
+            } else if((symbol == "." && !currentNumberString.contains(symbol)) || symbol.isDigitsOnly()) {
                 currentNumberString += symbol
             }
         }
