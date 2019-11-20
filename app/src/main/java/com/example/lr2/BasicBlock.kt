@@ -35,7 +35,7 @@ class BasicBlock : Fragment() {
         binding.buttonMinus.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Subtract) }
         binding.buttonMultiply.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Multiply) }
         binding.buttonDivide.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Divide) }
-        binding.buttonEquals.setOnClickListener{ mainActivity.doCurrentOperation() }
+        binding.buttonEquals.setOnClickListener{ mainActivity.doEquality() }
         binding.buttonPlusMinus.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.PlusMinus) }
         binding.buttonPercent.setOnClickListener { mainActivity.doInstantOperation(InstantOperation.Percent) }
     }

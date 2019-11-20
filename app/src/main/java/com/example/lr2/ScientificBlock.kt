@@ -45,9 +45,13 @@ class ScientificBlock : Fragment() {
         }
         fragments.forEach { x -> x.visibility = View.GONE }
         fragments[currentPage].visibility = View.VISIBLE
-        val button = view?.findViewById(R.id.buttonPage) as Button
-        //TODO lightup 2ndf on 2nd page
-        //button.text = "${currentPage+1}/${fragments.size}"
+        val button: Button? = view?.findViewById(R.id.buttonPage)
+        //button?.text = "${currentPage+1}/${fragments.size}"
+        if(newPage == 1)
+            button?.setTextColor(resources.getColor(R.color.colorAccent))
+        else
+            button?.setTextColor(resources.getColor(R.color.colorPrimary))
+
     }
 
 }

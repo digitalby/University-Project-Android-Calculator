@@ -25,9 +25,9 @@ class ScientificMain : Fragment() {
         binding.buttonMC.setOnClickListener{ mainActivity.updateMemory(0.0, 0.0) }
         binding.buttonE.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.InsertE) }
         binding.buttonPi.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.InsertPi) }
-        binding.buttonRootY.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonPowerY.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonLogY.setOnClickListener{ throw NotImplementedError("not implemented") }
+        binding.buttonRootY.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Root) }
+        binding.buttonPowerY.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Power) }
+        binding.buttonLogY.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Log) }
     }
 
     override fun onCreateView(

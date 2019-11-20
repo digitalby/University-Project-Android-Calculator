@@ -6,22 +6,24 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import com.example.lr2.databinding.ActivityMainBinding
-import kotlin.math.E
-import kotlin.math.PI
-import kotlin.math.absoluteValue
-import kotlin.math.roundToLong
+import kotlin.math.*
 
 enum class CalculatorOperation {
     None,
     Add,
     Subtract,
     Multiply,
-    Divide
+    Divide,
+    Power,
+    Root,
+    Log,
+    Exponent
 }
 
 enum class InstantOperation {
@@ -32,7 +34,11 @@ enum class InstantOperation {
     Backspace,
     Sin,
     Cos,
-    Tan
+    Tan,
+    Arcsin,
+    Arccos,
+    Arctan,
+    Factorial
 }
 
 enum class CalculatorMode {
@@ -46,12 +52,14 @@ class MainActivity : AppCompatActivity() {
     var currentNumberString = ""
     var currentOperation: CalculatorOperation = CalculatorOperation.None
     var firstNumber: Double? = null
-    var memory: Double = 0.0; private set //TODO indication of memory being non-zero
-    var menuItem: MenuItem? = null
+    var memory: Double = 0.0; private set
+    var menu: Menu? = null
+    private var preview: Boolean = false
+    var lastOperation: CalculatorOperation = CalculatorOperation.None
+    var lastOperationNumber: Double = 0.0
     var currentMode = CalculatorMode.PortraitBasic
     lateinit var binding: ActivityMainBinding
     
-    //TODO function for making string (both normal and short)
 
     fun parseCurrentString(): Double {
         if(currentNumberString.isEmpty() || currentNumberString == "0.") {
@@ -62,18 +70,38 @@ class MainActivity : AppCompatActivity() {
 
     fun toCurrentString(num: Double) {
         val ret = num.toString()
+        if(num.isInfinite() || num.isNaN())
+            updateStringAndText("Error")
+        else
+            updateStringAndText(ret)
         //FIXME long strings and big numbers are not handled!
 
         //FIXME no trailing zeros allowed!
-
+        //TODO function for making string (both normal and short)
         //TODO handle numbers that are too long (>=1 billion) or with too long decimal parts. don't forget MINUS!
         //TODO handle both portrait and landscape (introduce a new variable?)
-        updateStringAndText(ret)
     }
 
     fun updateStringAndText(str: String, textViewText: String = str) {
         currentNumberString = str
         binding.mainTextView.text = textViewText
+    }
+
+    fun filterStringAndText() {
+
+    }
+
+    fun doEquality() {
+        if(currentNumberString == "Error")
+            return
+        if(currentOperation != CalculatorOperation.None)
+            doCurrentOperation()
+        else {
+            currentOperation = lastOperation
+            firstNumber = parseCurrentString()
+            toCurrentString(lastOperationNumber)
+            doCurrentOperation()
+        }
     }
 
     fun doPlusMinus() {
@@ -89,11 +117,94 @@ class MainActivity : AppCompatActivity() {
         binding.mainTextView.text = currentNumberString
     }
 
+    //TODO Error check should probably be in doInstantOperation? (DRY principle)
+
+    fun doPower(power: Double) {
+        if(currentNumberString == "Error")
+            return
+        currentOperation = CalculatorOperation.Power
+        firstNumber = parseCurrentString()
+        toCurrentString(power)
+        doCurrentOperation()
+    }
+
+    fun doLog(base: Double) {
+        if(currentNumberString == "Error")
+            return
+        currentOperation = CalculatorOperation.Log
+        firstNumber = parseCurrentString()
+        toCurrentString(base)
+        doCurrentOperation()
+    }
+
+    fun doFactorial() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        if(num == 0.0)
+            toCurrentString(1.0)
+        else if(num % 1 != 0.0) {
+            updateStringAndText("Error")
+            return
+        }
+        var ret = 1.0
+        for (i: Int in 1..num.absoluteValue.toInt())
+            ret *= i
+        if(num < 0.0)
+            ret = -ret
+        toCurrentString(ret)
+    }
+
+    fun doSin() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        toCurrentString(sin(num))
+    }
+
+    fun doCos() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        toCurrentString(cos(num))
+    }
+
+    fun doTan() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        if(num == 90.0 || num == 270.0) {
+            updateStringAndText("Error")
+        } else {
+            toCurrentString(tan(num))
+        }
+    }
+
+    fun doArcsin() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        toCurrentString(asin(num))
+    }
+
+    fun doArccos() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        toCurrentString(acos(num))
+    }
+
+    fun doArctan() {
+        if(currentNumberString == "Error")
+            return
+        val num = parseCurrentString()
+        toCurrentString(atan(num))
+    }
+
     fun doPercent() {
         if(currentNumberString == "Error")
             return
-        var num = parseCurrentString()
-        num /= 100.0
+        val num = parseCurrentString() / 100.0
         toCurrentString(num)
     }
 
@@ -103,7 +214,7 @@ class MainActivity : AppCompatActivity() {
         if(currentNumberString.isNotEmpty()) {
             doCurrentOperation()
             firstNumber = parseCurrentString()
-            updateStringAndText("", "0")
+            preview=true
         }
         currentOperation = operation
     }
@@ -112,9 +223,22 @@ class MainActivity : AppCompatActivity() {
         when(operation) {
             InstantOperation.Percent -> doPercent()
             InstantOperation.PlusMinus -> doPlusMinus()
-            InstantOperation.InsertPi -> toCurrentString(PI)
-            InstantOperation.InsertE -> toCurrentString(E)
+            InstantOperation.InsertPi -> {
+                preview = false
+                toCurrentString(PI)
+            }
+            InstantOperation.InsertE -> {
+                preview = false
+                toCurrentString(E)
+            }
+            InstantOperation.Sin -> doSin()
+            InstantOperation.Cos -> doCos()
+            InstantOperation.Tan -> doTan()
+            InstantOperation.Arcsin -> doArcsin()
+            InstantOperation.Arccos -> doArccos()
+            InstantOperation.Arctan -> doArctan()
             InstantOperation.Backspace -> inputNumber("Backspace")
+            InstantOperation.Factorial -> doFactorial()
             else -> return
         }
     }
@@ -122,6 +246,11 @@ class MainActivity : AppCompatActivity() {
     fun updateMemory(delta: Double = 0.0, newMemory: Double = memory) {
         memory = newMemory
         memory += delta
+        val buttonMR: Button? = findViewById(R.id.buttonMR)
+        buttonMR?.setTextColor(resources.getColor(R.color.colorPrimary))
+        if(memory != 0.0) {
+            buttonMR?.setTextColor(resources.getColor(R.color.colorAccent))
+        }
     }
 
     fun doCurrentOperation() {
@@ -129,6 +258,8 @@ class MainActivity : AppCompatActivity() {
             return
         val secondNumber = parseCurrentString()
         var result = 0.0
+        if(firstNumber == null)
+            firstNumber = 0.0
         when(currentOperation) {
             CalculatorOperation.None -> return
             CalculatorOperation.Add -> {
@@ -147,41 +278,71 @@ class MainActivity : AppCompatActivity() {
                     result = firstNumber!! / secondNumber
                 }
             }
+            CalculatorOperation.Exponent -> {
+                result = firstNumber!! * 10.0.pow(secondNumber)
+            }
+            CalculatorOperation.Log -> {
+                if(secondNumber <= 0.0 || secondNumber == 1.0 || firstNumber!! <= 0.0)
+                    updateStringAndText("Error")
+                else
+                    result = log(firstNumber!!, secondNumber)
+            }
+            CalculatorOperation.Power -> {
+                result = firstNumber!!.pow(secondNumber)
+            }
+            CalculatorOperation.Root -> {
+                if(secondNumber == 0.0)
+                    updateStringAndText("Error")
+                else
+                    result = firstNumber!!.pow(1.0/secondNumber)
+            }
         }
         if(currentNumberString != "Error")
             toCurrentString(result)
+        lastOperationNumber = secondNumber
+        lastOperation = currentOperation
         firstNumber = null
         currentOperation = CalculatorOperation.None
+        preview = true
     }
 
     fun setMode(mode: CalculatorMode) {
         val basicBlock: View = findViewById(R.id.fragmentBasicBlock)
-        val scientificBlock: View = findViewById(R.id.fragmentScientificBlock)
+        val scientificBlock: View? = findViewById(R.id.fragmentScientificBlock)
+        val menuItem: MenuItem? = menu?.findItem(R.id.buttonSwitchMode)
         currentMode = mode
+        menuItem?.setVisible(true)
         when(mode) {
             CalculatorMode.PortraitBasic -> {
-                scientificBlock.visibility = View.GONE
+                scientificBlock?.visibility = View.GONE
                 basicBlock.visibility = View.VISIBLE
                 menuItem?.icon =  ContextCompat.getDrawable(this, R.drawable.scientific)
             }
             CalculatorMode.PortraitScientific -> {
                 basicBlock.visibility = View.GONE
-                scientificBlock.visibility = View.VISIBLE
+                scientificBlock?.visibility = View.VISIBLE
                 menuItem?.icon =  ContextCompat.getDrawable(this, R.drawable.basic)
             }
-            CalculatorMode.Landscape -> return
+            CalculatorMode.Landscape -> {
+                basicBlock.visibility = View.VISIBLE
+                menuItem?.setVisible(false)
+            }
         }
     }
 
     fun inputNumber(symbol: String) {
-        //FIXME bug: if EXPONENT is present, disallow entry of numbers, or implement 'preview' mode
         if(symbol == "C") {
             currentOperation = CalculatorOperation.None
             updateStringAndText("", "0")
+            preview = false
             return
         }
         if(currentNumberString == "Error")
             return
+        if(preview) {
+            updateStringAndText("", "0")
+            preview = false
+        }
         if(currentNumberString.length == 99999) { //FIXME handle landscape and set length (not hardcoded!)
             return
         } else if(currentNumberString.isEmpty()) {
@@ -197,6 +358,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             if(symbol == "Backspace") {
                 currentNumberString = currentNumberString.removeRange(currentNumberString.length-1,currentNumberString.length)
+                if(currentNumberString.length == 0)
+                    updateStringAndText("", "0")
             } else if((symbol == "." && !currentNumberString.contains(symbol)) || symbol.isDigitsOnly()) {
                 currentNumberString += symbol
             }
@@ -206,13 +369,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        menuItem = menu?.getItem(0)
-        return super.onCreateOptionsMenu(menu)
+        val superRet = super.onCreateOptionsMenu(menu)
+        this.menu = menu
+        val orientation = resources.configuration.orientation
+        if(orientation == Configuration.ORIENTATION_PORTRAIT)
+            setMode(CalculatorMode.PortraitBasic)
+        else if(orientation == Configuration.ORIENTATION_LANDSCAPE)
+            setMode(CalculatorMode.Landscape)
+        return superRet
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.buttonSwitchMode) {
-            menuItem = item
             when(currentMode) {
                 CalculatorMode.PortraitBasic -> setMode(CalculatorMode.PortraitScientific)
                 CalculatorMode.PortraitScientific -> setMode(CalculatorMode.PortraitBasic)
@@ -221,14 +389,37 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putString("currentNumberString", currentNumberString)
+        savedInstanceState.putSerializable("currentOperation", currentOperation)
+        if(firstNumber != null)
+            savedInstanceState.putDouble("firstNumber", firstNumber!!)
+        savedInstanceState.putDouble("memory", memory)
+        savedInstanceState.putBoolean("preview", preview)
+        savedInstanceState.putSerializable("lastOperation", lastOperation)
+        savedInstanceState.putDouble("lastOperationNumber", lastOperationNumber)
+        super.onSaveInstanceState(savedInstanceState)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        inputNumber("C")
+        if (savedInstanceState == null) {
+            inputNumber("C")
+        } else {
+            buttonOperation(savedInstanceState.getSerializable("currentOperation") as CalculatorOperation)
+            updateStringAndText(savedInstanceState.getString("currentNumberString")!!)
+            firstNumber = savedInstanceState.getDouble("firstNumber")
+            updateMemory(0.0, savedInstanceState.getDouble("memory"))
+            preview = savedInstanceState.getBoolean("preview")
+            lastOperation = savedInstanceState.getSerializable("lastOperation") as CalculatorOperation
+            lastOperationNumber = savedInstanceState.getDouble("lastOperationNumber")
+        }
+        if(currentNumberString.isEmpty())
+            updateStringAndText("", "0")
     }
 
     override fun onStart() {
         super.onStart()
-        setMode(CalculatorMode.PortraitBasic)
     }
 }

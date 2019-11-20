@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.lr2.databinding.FragmentScientific2Binding
+import kotlin.math.E
 
 /**
  * A simple [Fragment] subclass.
@@ -17,14 +18,14 @@ class Scientific2 : Fragment() {
     lateinit var binding: FragmentScientific2Binding
     lateinit var mainActivity: MainActivity
     fun setButtonActions() {
-        binding.buttonFactorial.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonLn.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonLog10.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonLog2.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonCubrt.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonArctan.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonArccos.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonArcsin.setOnClickListener{ throw NotImplementedError("not implemented") }
+        binding.buttonFactorial.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Factorial) }
+        binding.buttonLn.setOnClickListener{ mainActivity.doLog(E) }
+        binding.buttonLog10.setOnClickListener{ mainActivity.doLog(10.0) }
+        binding.buttonLog2.setOnClickListener{ mainActivity.doLog(2.0) }
+        binding.buttonCubrt.setOnClickListener{ mainActivity.doPower(1.0/3.0) }
+        binding.buttonArctan.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Arctan) }
+        binding.buttonArccos.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Arccos) }
+        binding.buttonArcsin.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Arcsin) }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

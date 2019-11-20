@@ -17,14 +17,14 @@ class Scientific1 : Fragment() {
     lateinit var binding: FragmentScientific1Binding
     lateinit var mainActivity: MainActivity
     fun setButtonActions() {
-        binding.buttonExponent.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonPower3.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonPower2.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonPowerInvert.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonSqrt.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonTan.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonCos.setOnClickListener{ throw NotImplementedError("not implemented") }
-        binding.buttonSin.setOnClickListener{ throw NotImplementedError("not implemented") }
+        binding.buttonExponent.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Exponent) }
+        binding.buttonPower3.setOnClickListener{ mainActivity.doPower(3.0) }
+        binding.buttonPower2.setOnClickListener{ mainActivity.doPower(2.0) }
+        binding.buttonPowerInvert.setOnClickListener{ mainActivity.doPower(-1.0) }
+        binding.buttonSqrt.setOnClickListener{ mainActivity.doPower(1.0/2.0) }
+        binding.buttonTan.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Tan) }
+        binding.buttonCos.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Cos) }
+        binding.buttonSin.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Sin) }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

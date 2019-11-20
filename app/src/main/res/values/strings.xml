@@ -19,7 +19,7 @@
     <string name="button_decimal">.</string>
     <string name="button_percent">%</string>
     <string name="button_ac">AC</string>
-    <string name="button_c">C</string>
+    <string name="button_c">AC</string>
     <string name="button_backspace">⌫</string>
     <string name="button_mr">MR</string>
     <string name="button_m_minus">M-</string>
@@ -33,7 +33,7 @@
     <string name="button_exponent">EE</string>
     <string name="button_power_3">x^3</string>
     <string name="button_power_2">x^2</string>
-    <string name="button_power_invert">x^-1</string>
+    <string name="button_power_invert">1/x</string>
     <string name="button_sqrt">sqrt</string>
     <string name="button_tan">tan</string>
     <string name="button_cos">cos</string>
@@ -44,8 +44,8 @@
     <string name="button_ln">ln</string>
     <string name="button_log10">log10</string>
     <string name="button_log2">log2</string>
-    <string name="button_arctan">tan^-1</string>
-    <string name="button_arccos">cos^-1</string>
-    <string name="button_arcsin">sin^-1</string>
+    <string name="button_arctan">tan⁻¹</string>
+    <string name="button_arccos">cos⁻¹</string>
+    <string name="button_arcsin">sin⁻¹</string>
     <string name="button_factorial">x!</string>
 </resources>
