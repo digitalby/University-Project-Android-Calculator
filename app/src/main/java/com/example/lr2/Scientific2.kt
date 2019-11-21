@@ -15,9 +15,9 @@ import kotlin.math.E
  */
 class Scientific2 : Fragment() {
 
-    lateinit var binding: FragmentScientific2Binding
-    lateinit var mainActivity: MainActivity
-    fun setButtonActions() {
+    private lateinit var binding: FragmentScientific2Binding
+    private lateinit var mainActivity: MainActivity
+    private fun setButtonActions() {
         binding.buttonFactorial.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Factorial) }
         binding.buttonLn.setOnClickListener{ mainActivity.doLog(E) }
         binding.buttonLog10.setOnClickListener{ mainActivity.doLog(10.0) }

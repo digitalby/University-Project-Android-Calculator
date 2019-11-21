@@ -217,9 +217,14 @@ class MainActivity : AppCompatActivity() {
         memory = newMemory
         memory += delta
         val buttonMR: Button? = findViewById(R.id.buttonMR)
-        buttonMR?.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        if(buttonMR?.isEnabled == true)
+            buttonMR.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        else {
+            buttonMR?.setTextColor(ContextCompat.getColor(this, R.color.colorDisabled))
+            return
+        }
         if(memory != 0.0) {
-            buttonMR?.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
+            buttonMR.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
         }
     }
 

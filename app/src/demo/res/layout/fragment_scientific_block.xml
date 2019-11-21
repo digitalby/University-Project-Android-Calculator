@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scientificBlockLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScientificBlock" >
+
+    <fragment
+        android:id="@+id/fragmentScientific1"
+        android:name="com.example.lr2.Scientific1"
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="35dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPage"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPage"
+        app:layout_constraintStart_toStartOf="@+id/buttonPage"
+        app:layout_constraintTop_toTopOf="@+id/fragmentScientificMain"
+        tools:layout="@layout/fragment_scientific1" />
+
+    <fragment
+        android:id="@+id/fragmentScientific2"
+        android:name="com.example.lr2.Scientific2"
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="35dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPage"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPage"
+        app:layout_constraintStart_toStartOf="@+id/buttonPage"
+        app:layout_constraintTop_toTopOf="@+id/fragmentScientificMain"
+        app:layout_constraintVertical_bias="0.50"
+        tools:layout="@layout/fragment_scientific2" />
+
+    <Button
+        android:id="@+id/buttonPage"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="@string/button_2ndf"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentScientificMain"
+        app:layout_constraintEnd_toStartOf="@+id/fragmentScientificMain"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <fragment
+        android:id="@+id/fragmentScientificMain"
+        android:name="com.example.lr2.ScientificMain"
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout="@layout/fragment_scientific_main" />
+</androidx.constraintlayout.widget.ConstraintLayout>

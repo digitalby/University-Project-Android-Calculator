@@ -14,9 +14,9 @@ import com.example.lr2.databinding.FragmentScientific1Binding
  */
 class Scientific1 : Fragment() {
 
-    lateinit var binding: FragmentScientific1Binding
-    lateinit var mainActivity: MainActivity
-    fun setButtonActions() {
+    private lateinit var binding: FragmentScientific1Binding
+    private lateinit var mainActivity: MainActivity
+    private fun setButtonActions() {
         binding.buttonExponent.setOnClickListener{ mainActivity.buttonOperation(CalculatorOperation.Exponent) }
         binding.buttonPower3.setOnClickListener{ mainActivity.doPower(3.0) }
         binding.buttonPower2.setOnClickListener{ mainActivity.doPower(2.0) }

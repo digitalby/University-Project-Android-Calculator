@@ -23,6 +23,24 @@ android {
         }
     }
     flavorDimensions 'mainDimension'
+    productFlavors {
+        full {
+            dimension = 'mainDimension'
+            applicationId = 'com.example.lr2'
+            versionCode = 1
+            versionName = '1.0'
+            targetSdkVersion 29
+            minSdkVersion 15
+        }
+        demo {
+            dimension = 'mainDimension'
+            applicationId = 'com.example.lr2demo'
+            versionCode = 1
+            versionName = '1.0'
+            targetSdkVersion 29
+            minSdkVersion 15
+        }
+    }
 }
 
 dependencies {

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scientificMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ScientificMain">
+
+
+        <Button
+            android:id="@+id/buttonMMinus"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_m_minus"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMR"
+            app:layout_constraintStart_toStartOf="@+id/buttonMR"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonPi"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_pi"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonMR"
+            app:layout_constraintEnd_toEndOf="@+id/buttonE"
+            app:layout_constraintStart_toStartOf="@+id/buttonE"
+            app:layout_constraintTop_toTopOf="@+id/buttonMR" />
+
+        <Button
+            android:id="@+id/buttonLogY"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_log_y"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonMC"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPowerY"
+            app:layout_constraintStart_toStartOf="@+id/buttonPowerY"
+            app:layout_constraintTop_toTopOf="@+id/buttonMC" />
+
+        <Button
+            android:id="@+id/buttonPowerY"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_power_y"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonMPlus"
+            app:layout_constraintEnd_toEndOf="@+id/buttonRootY"
+            app:layout_constraintStart_toStartOf="@+id/buttonRootY"
+            app:layout_constraintTop_toTopOf="@+id/buttonMPlus" />
+
+        <Button
+            android:id="@+id/buttonMR"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_mr"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonBackspace"
+            app:layout_constraintStart_toStartOf="@+id/buttonBackspace"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.26" />
+
+        <Button
+            android:id="@+id/buttonMPlus"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_m_plus"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMMinus"
+            app:layout_constraintStart_toStartOf="@+id/buttonMMinus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.76" />
+
+        <Button
+            android:id="@+id/buttonE"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_e"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonBackspace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonBackspace" />
+
+        <Button
+            android:id="@+id/buttonRootY"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_root_y"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonMMinus"
+            app:layout_constraintEnd_toEndOf="@+id/buttonPi"
+            app:layout_constraintStart_toStartOf="@+id/buttonPi"
+            app:layout_constraintTop_toTopOf="@+id/buttonMMinus" />
+
+        <Button
+            android:id="@+id/buttonBackspace"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_backspace"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/buttonMC"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="55sp"
+            android:layout_height="40sp"
+            android:width="55sp"
+            android:height="55sp"
+            android:enabled="false"
+            android:text="@string/button_mc"
+            android:textAllCaps="false"
+            android:textColor="@color/colorDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonMPlus"
+            app:layout_constraintStart_toStartOf="@+id/buttonMPlus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

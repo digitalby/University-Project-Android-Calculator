@@ -14,10 +14,10 @@ import com.example.lr2.databinding.FragmentScientificMainBinding
  */
 class ScientificMain : Fragment() {
 
-    lateinit var binding: FragmentScientificMainBinding
-    lateinit var mainActivity: MainActivity
+    private lateinit var binding: FragmentScientificMainBinding
+    private lateinit var mainActivity: MainActivity
 
-    fun setButtonActions() {
+    private fun setButtonActions() {
         binding.buttonBackspace.setOnClickListener{ mainActivity.doInstantOperation(InstantOperation.Backspace) }
         binding.buttonMR.setOnClickListener{ mainActivity.toCurrentString(mainActivity.memory) }
         binding.buttonMMinus.setOnClickListener{ mainActivity.updateMemory(-mainActivity.parseCurrentString()) }
