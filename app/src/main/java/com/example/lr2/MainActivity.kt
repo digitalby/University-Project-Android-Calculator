@@ -48,6 +48,8 @@ enum class CalculatorMode {
 
 class MainActivity : AppCompatActivity() {
 
+    
+
     private var currentNumberString = ""
     private var currentOperation: CalculatorOperation = CalculatorOperation.None
     private var firstNumber: Double? = null
@@ -317,7 +319,8 @@ class MainActivity : AppCompatActivity() {
         if(preview) {
             updateStringAndText("", "0")
             preview = false
-        } else if(currentNumberString.isEmpty()) {
+        }
+        if(currentNumberString.isEmpty()) {
             when (symbol) {
                 "." -> currentNumberString = "0."
                 "0" -> {
