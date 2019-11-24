@@ -48,28 +48,39 @@ enum class CalculatorMode {
 
 class MainActivity : AppCompatActivity() {
 
-    
+    //TODO fragments should communicate using an interface
+    //TODO remake ```preview``` into something more intuitive (reset to 0 after action button pushed?)
+    //TODO indicate action that is about to be executed
 
     private var currentNumberString = ""
     private var currentOperation: CalculatorOperation = CalculatorOperation.None
     private var firstNumber: Double? = null
-    var memory: Double = 0.0; private set
-    private var menu: Menu? = null
+    private var memory: Double = 0.0
     private var preview: Boolean = false
     private var lastOperation: CalculatorOperation = CalculatorOperation.None
     private var lastOperationNumber: Double = 0.0
     private var currentMode = CalculatorMode.PortraitBasic
-    lateinit var binding: ActivityMainBinding
+    
+    private var menu: Menu? = null
+    private lateinit var binding: ActivityMainBinding
     
 
-    fun parseCurrentString(): Double {
+    private fun parseCurrentString(): Double {
         if(currentNumberString.isEmpty() || currentNumberString == "0.") {
             return 0.0
         }
         return currentNumberString.toDouble()
     }
 
-    fun toCurrentString(num: Double) {
+    fun memoryToCurrentString() {
+        toCurrentString(memory)
+    }
+
+    fun doMemoryPlus(multiplier: Double = 1.0, delta: Double = parseCurrentString()) {
+        updateMemory(delta * multiplier)
+    }
+
+    private fun toCurrentString(num: Double) {
         val ret = num.toString()
         if(num.isInfinite() || num.isNaN())
             updateStringAndText("Error")
