@@ -49,8 +49,6 @@ enum class CalculatorMode {
 class MainActivity : AppCompatActivity() {
 
     //TODO fragments should communicate using an interface
-    //TODO remake ```preview``` into something more intuitive (reset to 0 after action button pushed?)
-    //TODO indicate action that is about to be executed
 
     private var currentNumberString = ""
     private var currentOperation: CalculatorOperation = CalculatorOperation.None
@@ -60,7 +58,9 @@ class MainActivity : AppCompatActivity() {
     private var lastOperation: CalculatorOperation = CalculatorOperation.None
     private var lastOperationNumber: Double = 0.0
     private var currentMode = CalculatorMode.PortraitBasic
-    
+
+    private lateinit var operationToButton: Map<CalculatorOperation, Button>
+
     private var menu: Menu? = null
     private lateinit var binding: ActivityMainBinding
     
@@ -84,8 +84,11 @@ class MainActivity : AppCompatActivity() {
         val ret = num.toString()
         if(num.isInfinite() || num.isNaN())
             updateStringAndText("Error")
-        else if(num % 1 == 0.0)
-            updateStringAndText(num.toInt().toString())
+        else if(num % 1 == 0.0) {
+            var newValue = num.toString()
+            newValue = newValue.replace(Regex("\\.0*$"), "")
+            updateStringAndText(newValue)
+        }
         else
             updateStringAndText(ret)
     }
@@ -101,10 +104,12 @@ class MainActivity : AppCompatActivity() {
         if(currentOperation != CalculatorOperation.None)
             doCurrentOperation()
         else {
-            currentOperation = lastOperation
-            firstNumber = parseCurrentString()
-            toCurrentString(lastOperationNumber)
-            doCurrentOperation()
+            if(lastOperation != CalculatorOperation.None) {
+                setCurrentOperation(lastOperation)
+                firstNumber = parseCurrentString()
+                toCurrentString(lastOperationNumber)
+                doCurrentOperation()
+            }
         }
     }
 
@@ -122,14 +127,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun doPower(power: Double) {
-        currentOperation = CalculatorOperation.Power
+        setCurrentOperation(CalculatorOperation.Power)
         firstNumber = parseCurrentString()
         toCurrentString(power)
         doCurrentOperation()
     }
 
     fun doLog(base: Double) {
-        currentOperation = CalculatorOperation.Log
+        setCurrentOperation(CalculatorOperation.Log)
         firstNumber = parseCurrentString()
         toCurrentString(base)
         doCurrentOperation()
@@ -149,16 +154,19 @@ class MainActivity : AppCompatActivity() {
         if(num < 0.0)
             ret = -ret
         toCurrentString(ret)
+        preview = true
     }
 
     private fun doSin() {
         val num = parseCurrentString()
         toCurrentString(sin(num))
+        preview = true
     }
 
     private fun doCos() {
         val num = parseCurrentString()
         toCurrentString(cos(num))
+        preview = true
     }
 
     private fun doTan() {
@@ -168,37 +176,50 @@ class MainActivity : AppCompatActivity() {
         } else {
             toCurrentString(tan(num))
         }
+        preview = true
     }
 
     private fun doArcsin() {
         val num = parseCurrentString()
         toCurrentString(asin(num))
+        preview = true
     }
 
     private fun doArccos() {
         val num = parseCurrentString()
         toCurrentString(acos(num))
+        preview = true
     }
 
     private fun doArctan() {
         val num = parseCurrentString()
         toCurrentString(atan(num))
+        preview = true
     }
 
     private fun doPercent() {
         val num = parseCurrentString() / 100.0
         toCurrentString(num)
+        preview = true
     }
 
     fun buttonOperation(operation: CalculatorOperation) {
         if(currentNumberString == "Error")
             return
         if(currentNumberString.isNotEmpty()) {
-            doCurrentOperation()
-            firstNumber = parseCurrentString()
-            preview=true
+            if (!preview || firstNumber == null) {
+                doCurrentOperation()
+                firstNumber = parseCurrentString()
+                preview = true
+            }
         }
+        setCurrentOperation(operation)
+    }
+
+    private fun setCurrentOperation(operation: CalculatorOperation) {
         currentOperation = operation
+        operationToButton.values.forEach { b -> b.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary)) }
+        operationToButton[currentOperation]?.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
     }
 
     fun doInstantOperation(operation: InstantOperation) {
@@ -290,7 +311,7 @@ class MainActivity : AppCompatActivity() {
         lastOperationNumber = secondNumber
         lastOperation = currentOperation
         firstNumber = null
-        currentOperation = CalculatorOperation.None
+        setCurrentOperation(CalculatorOperation.None)
         preview = true
     }
 
@@ -320,9 +341,12 @@ class MainActivity : AppCompatActivity() {
 
     fun inputNumber(symbol: String) {
         if(symbol == "C") {
-            currentOperation = CalculatorOperation.None
+            setCurrentOperation(CalculatorOperation.None)
+            firstNumber = null
             updateStringAndText("", "0")
             preview = false
+            lastOperation = CalculatorOperation.None
+            lastOperationNumber = 0.0
             return
         }
         if(currentNumberString == "Error")
@@ -351,6 +375,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.mainTextView.text = currentNumberString
+    }
+
+    private fun setOperationMap() {
+        operationToButton = mapOf(
+            CalculatorOperation.Add to findViewById(R.id.buttonPlus) as Button,
+            CalculatorOperation.Subtract to findViewById(R.id.buttonMinus) as Button,
+            CalculatorOperation.Multiply to findViewById(R.id.buttonMultiply) as Button,
+            CalculatorOperation.Divide to findViewById(R.id.buttonDivide) as Button,
+            CalculatorOperation.Power to findViewById(R.id.buttonPowerY) as Button,
+            CalculatorOperation.Root to findViewById(R.id.buttonRootY) as Button,
+            CalculatorOperation.Log to findViewById(R.id.buttonLogY) as Button,
+            CalculatorOperation.Exponent to findViewById(R.id.buttonExponent) as Button
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -391,6 +428,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        setOperationMap()
         if (savedInstanceState == null) {
             inputNumber("C")
         } else {
