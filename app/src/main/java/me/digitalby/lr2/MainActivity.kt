@@ -1,4 +1,4 @@
-package com.example.lr2
+package me.digitalby.lr2
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import com.example.lr2.databinding.ActivityMainBinding
+import me.digitalby.lr2.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(), CalculatorEngineListener {
@@ -62,7 +62,9 @@ class MainActivity : AppCompatActivity(), CalculatorEngineListener {
         if(buttonMR?.isEnabled == true)
             buttonMR.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary))
         else {
-            buttonMR?.setTextColor(ContextCompat.getColor(this, R.color.colorDisabled))
+            buttonMR?.setTextColor(ContextCompat.getColor(this,
+                R.color.colorDisabled
+            ))
             return
         }
         if(value != 0.0) {
@@ -78,10 +80,14 @@ class MainActivity : AppCompatActivity(), CalculatorEngineListener {
         if(BuildConfig.FLAVOR == "demo")
             return
         buttonIDtoOperation.keys.forEach { id ->
-            findViewById<Button>(id).setTextColor(ContextCompat.getColor(this, R.color.colorPrimary)) }
+            findViewById<Button>(id).setTextColor(ContextCompat.getColor(this,
+                R.color.colorPrimary
+            )) }
         for(id in buttonIDtoOperation.keys) {
             if(buttonIDtoOperation[id] == operation) {
-                findViewById<Button?>(id)?.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
+                findViewById<Button?>(id)?.setTextColor(ContextCompat.getColor(this,
+                    R.color.colorAccent
+                ))
                 break
             }
         }
@@ -109,7 +115,9 @@ class MainActivity : AppCompatActivity(), CalculatorEngineListener {
             CalculatorMode.PortraitBasic -> {
                 scientificBlock?.visibility = View.GONE
                 basicBlock.visibility = View.VISIBLE
-                menuItem?.icon =  ContextCompat.getDrawable(this, R.drawable.scientific)
+                menuItem?.icon =  ContextCompat.getDrawable(this,
+                    R.drawable.scientific
+                )
             }
             CalculatorMode.PortraitScientific -> {
                 basicBlock.visibility = View.GONE

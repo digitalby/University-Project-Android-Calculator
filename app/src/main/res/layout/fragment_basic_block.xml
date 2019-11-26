@@ -6,7 +6,7 @@
     android:id="@+id/basicBlockLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BasicBlock">
+    tools:context="me.digitalby.lr2.BasicBlock">
 
 
     <Button

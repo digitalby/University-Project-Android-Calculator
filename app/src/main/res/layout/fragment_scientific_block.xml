@@ -6,7 +6,7 @@
         android:id="@+id/scientificBlockLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ScientificBlock">
+        tools:context="me.digitalby.lr2.ScientificBlock">
 
 
         <Button

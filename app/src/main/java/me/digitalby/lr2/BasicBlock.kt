@@ -1,4 +1,4 @@
-package com.example.lr2
+package me.digitalby.lr2
 
 
 import android.os.Bundle
@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.lr2.databinding.FragmentBasicBlockBinding
+import me.digitalby.lr2.R
+import me.digitalby.lr2.databinding.FragmentBasicBlockBinding
 
 class BasicBlock : Fragment() {
 
@@ -17,7 +18,8 @@ class BasicBlock : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding: FragmentBasicBlockBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_basic_block, container, false)
+            DataBindingUtil.inflate(inflater,
+                R.layout.fragment_basic_block, container, false)
         return binding.root
     }
 }

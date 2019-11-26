@@ -1,4 +1,4 @@
-package com.example.lr2
+package me.digitalby.lr2
 
 
 import android.os.Bundle
@@ -9,7 +9,8 @@ import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.lr2.databinding.FragmentScientificBlockBinding
+import me.digitalby.lr2.R
+import me.digitalby.lr2.databinding.FragmentScientificBlockBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -25,7 +26,8 @@ class ScientificBlock : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_scientific_block, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_scientific_block, container, false)
         pageToButtons = mapOf(
             0 to listOf(
                 binding.buttonExponent,
@@ -67,12 +69,18 @@ class ScientificBlock : Fragment() {
         val button: Button? = view?.findViewById(R.id.buttonPage)
         //button?.text = "${currentPage+1}/${fragments.size}"
         if(newPage == 1)
-            button?.setTextColor(ContextCompat.getColor(this.context!!, R.color.colorAccent))
+            button?.setTextColor(ContextCompat.getColor(this.context!!,
+                R.color.colorAccent
+            ))
         else {
             if(button?.isEnabled == true)
-                button.setTextColor(ContextCompat.getColor(this.context!!, R.color.colorPrimary))
+                button.setTextColor(ContextCompat.getColor(this.context!!,
+                    R.color.colorPrimary
+                ))
             else
-                button?.setTextColor(ContextCompat.getColor(this.context!!, R.color.colorDisabled))
+                button?.setTextColor(ContextCompat.getColor(this.context!!,
+                    R.color.colorDisabled
+                ))
         }
 
     }

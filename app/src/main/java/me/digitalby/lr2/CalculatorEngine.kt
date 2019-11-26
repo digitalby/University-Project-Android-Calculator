@@ -1,4 +1,4 @@
-package com.example.lr2
+package me.digitalby.lr2
 
 import android.os.Bundle
 import androidx.core.text.isDigitsOnly
@@ -12,7 +12,8 @@ class CalculatorEngine(private val listener: CalculatorEngineListener?) {
         listener?.onDisplayStringChanged(field)
     }
     private var currentNumberString = ""
-    private var currentOperation: CalculatorOperation = CalculatorOperation.None
+    private var currentOperation: CalculatorOperation =
+        CalculatorOperation.None
     set(value) {
         field = value
         listener?.onCurrentOperationChanged(field)
@@ -24,7 +25,8 @@ class CalculatorEngine(private val listener: CalculatorEngineListener?) {
         listener?.onMemoryChanged(field)
     }
     private var preview: Boolean = false
-    private var lastOperation: CalculatorOperation = CalculatorOperation.None
+    private var lastOperation: CalculatorOperation =
+        CalculatorOperation.None
     private var lastOperationNumber: Double = 0.0
 
 

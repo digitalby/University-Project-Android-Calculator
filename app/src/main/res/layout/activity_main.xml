@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/fragmentScientificBlock"
-        android:name="com.example.lr2.ScientificBlock"
+        android:name="me.digitalby.lr2.ScientificBlock"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -53,7 +53,7 @@
 
     <fragment
         android:id="@+id/fragmentBasicBlock"
-        android:name="com.example.lr2.BasicBlock"
+        android:name="me.digitalby.lr2.BasicBlock"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

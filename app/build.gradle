@@ -9,7 +9,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.example.lr2"
+        applicationId "me.digitalby.lr2"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -26,7 +26,7 @@ android {
     productFlavors {
         full {
             dimension = 'mainDimension'
-            applicationId = 'com.example.lr2'
+            applicationId = 'me.digitalby.lr2'
             versionCode = 1
             versionName = '1.0'
             targetSdkVersion 29
@@ -34,7 +34,7 @@ android {
         }
         demo {
             dimension = 'mainDimension'
-            applicationId = 'com.example.lr2demo'
+            applicationId = 'me.digitalby.lr2demo'
             versionCode = 1
             versionName = '1.0'
             targetSdkVersion 29
